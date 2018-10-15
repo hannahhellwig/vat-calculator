@@ -8,8 +8,7 @@ class App extends React.Component {
     this.state = {
       vatRate: 25,
       incVat: "",
-      exVat: "",
-      vatSum: ""
+      exVat: ""
     }
   }
 
@@ -24,6 +23,9 @@ class App extends React.Component {
     exVat: incVatToExtVat(this.state.vatRate, parseInt(event.target.value)),
     incVat: parseInt(event.target.value),
     })
+    console.log(this.state.incVat)
+    console.log(this.state.exVat)
+
   }
 
   handleExVatChange = (event) => {
@@ -83,6 +85,15 @@ class App extends React.Component {
               placeholder="0"
               onChange={this.handleExVatChange}
               value={this.state.exVat} />
+          </div>
+          <div>
+            <label>Momssumma (kr)</label>
+            <input
+              type="number"
+              name="vatSum"
+              placeholder="0"
+              readOnly="readonly"
+              value={(this.state.incVat - this.state.exVat)} />
           </div>
         </form>
       </div>
