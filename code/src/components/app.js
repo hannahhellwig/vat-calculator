@@ -60,7 +60,7 @@ class App extends React.Component {
           </div>
 
           <div>
-            <label htmlFor="option3">6%</label>
+            <label htmlFor="option3">6% </label>
             <input
               id="option3"
               type="radio"
@@ -93,7 +93,7 @@ class App extends React.Component {
               name="vatSum"
               placeholder="0"
               readOnly="readonly"
-              value={(this.state.incVat - this.state.exVat)} />
+              value={(this.state.incVat - this.state.exVat).toFixed(2)} />
           </div>
         </form>
       </div>
