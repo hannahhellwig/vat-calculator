@@ -21,29 +21,21 @@ class App extends React.Component {
 
   handleIncVatChange = (event) => {
     this.setState({
-      // incVat: event.target.value
     exVat: incVatToExtVat(this.state.vatRate, parseInt(event.target.value)),
     incVat: parseInt(event.target.value),
-    vatSum: (this.state.incVat - this.state.exVat) * 10
-    // || 0
     })
   }
 
   handleExVatChange = (event) => {
     this.setState({
-      // exVat: event.target.value
       incVat: exVatToIncVat(this.state.vatRate, parseInt(event.target.value)),
       exVat: parseInt(event.target.value),
-      vatSum: (this.state.incVat - this.state.exVat) * 10
     })
   }
 
   render() {
     return (
       <div className="App">
-        {/* <p>Example calculating ex vat for 1000kr inc vat @ 25%: {incVatToExtVat(25, 1000)}</p>
-        <p>Example calculating inc vat for 600kr ex vat @ 6%: {exVatToIncVat(6, 600)}</p> */}
-
         <form>
           <div>
             <label htmlFor="option1">25%</label>
@@ -92,19 +84,7 @@ class App extends React.Component {
               onChange={this.handleExVatChange}
               value={this.state.exVat} />
           </div>
-          <div>
-            <label>Momssumma (kr)</label>
-            <input
-              type="number"
-              name="vatSum"
-              placeholder="0"
-              value={this.state.vatSum} />
-          </div>
         </form>
-        <p>Current vatRate state: {this.state.vatRate}</p>
-        <p>Current incVat state: {this.state.incVat}</p>
-        <p>Current exVat state: {this.state.exVat}</p>
-        <p>Current vatSum state: {this.state.vatSum}</p>
       </div>
     )
   }
